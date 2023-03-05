@@ -1,5 +1,5 @@
 <template>
-<div> </div>
+<div><h1>I am INDEX</h1> </div>
 </template>
 
 

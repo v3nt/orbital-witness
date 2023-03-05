@@ -1,10 +1,25 @@
 import {defineStore} from 'pinia';
-import PLOTS_ACTIONS from "~/store/plots/actions";
-import PLOTS_GETTERS from "~/store/plots/getters";
-import PLOTS_STATE from "~/store/plots/state";
+
 
 export const usePlotsStore = defineStore("plots", {
-    state: PLOTS_STATE.state,
-    actions: PLOTS_ACTIONS,
-    getters: PLOTS_GETTERS,
+    state: () => {
+        return {
+            plotsList: [],
+            plot: null,
+        };
+    },
+    actions: {
+        setPlots() {
+            fetch(`https://owfetechtask.blob.core.windows.net/titledata/testdata.json`)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    this.plotsList = data;
+                });
+        },
+    },
+    getters: {
+        getPlots: (state) => state.plotsList,
+    },
 });
+3
