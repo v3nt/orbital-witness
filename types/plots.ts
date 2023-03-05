@@ -1,4 +1,4 @@
-export interface PlotInfo {
+export interface PlotsInfo {
     titleNumber: string;
     propertyAddress: string;
     tenure: string;
@@ -6,7 +6,7 @@ export interface PlotInfo {
     y: number;
 }
 
-export interface PlotState {
-    postList: PlotInfo[];
-    post: PlotInfo | null;
+export interface PlotsState {
+    plotsList: PlotsInfo[];
+    plot: PlotsInfo | null;
 }
