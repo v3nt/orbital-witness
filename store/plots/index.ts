@@ -1,4 +1,4 @@
-
+import { defineStore } from 'pinia';
 export const usePostsStore = defineStore("plots", {
     state: () => {
         return {
@@ -9,6 +9,5 @@ export const usePostsStore = defineStore("plots", {
     actions: {
     },
     getters: {
-
     },
 });
