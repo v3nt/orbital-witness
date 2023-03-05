@@ -1,6 +1,6 @@
 export interface PlotsInfo {
-    titleNumber: string;
-    propertyAddress: string;
+    number: string ;
+    address: string;
     tenure: string;
     x: number;
     y: number;
