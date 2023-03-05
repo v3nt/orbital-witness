@@ -1,24 +1,24 @@
 <template>
   <div>
     <h1>I am INDEX</h1>
-    <div v-if="plots">
-      <table >
-        <thead >
-          <tr>
-            <td>Plot Number</td>
-            <td>Address</td>
-            <td>tenure</td>
-          </tr>
+    <div v-if="myPlots">
+      <table>
+        <thead>
+        <tr>
+          <td>Plot Number</td>
+          <td>Address</td>
+          <td>tenure</td>
+        </tr>
         </thead>
         <tbody>
 
-         <tr v-for="item in myPlots">
+        <tr v-for="item in myPlots">
           <td>
-            {{item}}
+            {{ item.number }}
           </td>
-          <td>
-           </td>
-          <td>
+          <td> {{ item.address }}
+          </td>
+          <td> {{ item.tenure }}
           </td>
         </tr>
         </tbody>
@@ -29,11 +29,13 @@
 
 
 <script setup lang="ts">
+import {storeToRefs} from "pinia";
 import {usePlotsStore} from "~/store/plots";
 
 const myPlots = ref();
 
-const plots = usePlotsStore();
-plots.setPlots();
-myPlots.value = plots;
+const plotsStore = usePlotsStore();
+const {plotsList} = storeToRefs(plotsStore);
+plotsStore.setPlots();
+myPlots.value = plotsList.value;
 </script>
