@@ -35,7 +35,7 @@ const centerNew = ref({
 });
 
 const props = defineProps({
-  markers: {type: Array, required: false}
+  markers: {type: Array, required: true}
 });
 
 const locations = computed(() => {
