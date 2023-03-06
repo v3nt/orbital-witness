@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <h1>Orbital Witness</h1>
+  <div class="mt-3">
+    <ow-title title="Orbital Witness" />
     <h2>Your plots</h2>
-
     <Map :markers="plotsList" />
     <div v-if="plotsList">
       <div class="my-4">
@@ -57,6 +56,7 @@
 <script setup lang="ts">
 import {storeToRefs} from "pinia";
 import {usePlotsStore} from "~/store/plots";
+import OwTitle from "~/components/ow-Title.vue";
 
 const filterNameInput = ref("");
 
