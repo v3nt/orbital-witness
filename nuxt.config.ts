@@ -23,4 +23,9 @@ export default defineNuxtConfig({
             },
         },
     },
+    runtimeConfig: {
+        public: {
+            GMAP_API: process.env.GMAP_API
+        },
+    },
 })

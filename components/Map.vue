@@ -2,7 +2,7 @@
   <div class="mb-4">
     <GoogleMap
         ref="mapRef"
-        api-key="AIzaSyCrGl7gKsMSXVTcZv6-dyPghPqdejLn3DY"
+        :api-key="config.GMAP_API"
 
         :zoom="15"
         :center="centerNew "
@@ -27,6 +27,8 @@
 
 
 <script setup lang="ts">
+const config = useRuntimeConfig();
+
 import {GoogleMap, Marker, MarkerCluster, InfoWindow} from 'vue3-google-map';
 
 const centerNew = ref({

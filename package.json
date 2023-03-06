@@ -9,6 +9,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "@pinia/nuxt": "^0.4.7",
     "@vue/test-utils": "^2.3.0",
     "bootstrap": "^5.2.3",
@@ -23,7 +24,6 @@
     "pinia": "^2.0.32",
     "sass": "^1.58.3",
     "vite": "^4.1.4",
-    "vitest": "^0.29.2",
-    "vitest-environment-nuxt": "^0.6.6"
+    "vitest": "^0.29.2"
   }
 }
