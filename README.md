@@ -17,7 +17,9 @@ npm install
 pnpm install
 ```
 
-# Create `.env` file and add your Google API key for maps
+# Create `.env` file
+
+And add your Google API key 
 
 ## Development Server
 
