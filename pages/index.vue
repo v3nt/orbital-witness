@@ -3,7 +3,7 @@
     <h1>Orbital Witness</h1>
     <h2>Your plots</h2>
 
-    <Map v-if="plotsList" :markers="plotsList" />
+    <Map :markers="plotsList" />
     <div v-if="plotsList">
       <div class="my-4">
         <form @submit.prevent>

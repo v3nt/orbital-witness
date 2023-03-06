@@ -14,11 +14,11 @@ export const usePlotsStore = defineStore("plots", {
                 .then((response) => response.json())
                 .then((data) => {
                     const simplifyData = data.map((item: any) => ({
+                        lng: item.X,
+                        lat: item.Y,
                         number: item['Title Number'],
                         address: item['Property Address'],
                         tenure: item['Tenure'],
-                        lng: item.X,
-                        lat: item.Y,
                     })).filter((e: PlotsInfo) =>
                         e.number
                             .toLowerCase()
