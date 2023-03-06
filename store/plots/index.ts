@@ -1,3 +1,4 @@
+import {PlotsInfo} from "~/types/plots";
 
 
 export const usePlotsStore = defineStore("plots", {
@@ -8,7 +9,7 @@ export const usePlotsStore = defineStore("plots", {
         };
     },
     actions: {
-        async setPlots() {
+        async setPlots(filterNameInput:string='') {
             await fetch(`https://owfetechtask.blob.core.windows.net/titledata/testdata.json`)
                 .then((response) => response.json())
                 .then((data) => {
@@ -18,7 +19,11 @@ export const usePlotsStore = defineStore("plots", {
                         tenure: item['Tenure'],
                         x: item.X,
                         y: item.Y,
-                    }));
+                    })).filter((e: PlotsInfo) =>
+                         e.number
+                             .toLowerCase()
+                             .includes(filterNameInput.toLowerCase())
+                     );
                     this.plotsList = simplifyData;
                 });
         },

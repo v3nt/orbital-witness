@@ -2,13 +2,26 @@
   <div>
     <h1>Orbital Witness - your plots</h1>
     <div v-if="plotsList">
+      <div class="my-4 col">
+        <label for="filter-table-string" class="col-2 fw-bold form-label"
+        >Filter table by plot number</label
+        >
+        <input
+            id="filter-table-string"
+            type="text"
+            placeholder="..."
+            v-model="filterNameInput"
+            @input="filterByString"
+            class="form-control"
+        />
+      </div>
       <div class="my-3" v-if="tableRows && tableRows.length">
         Showing {{ tableRows.length }} results
       </div>
-      <table class="table">
+      <table class="table table-striped table-hover">
         <thead>
         <tr>
-          <th
+          <th role="button"
               v-for="(headerItem, i) in tableHeaderColumns"
               :key="`table-header-col-${i}`"
               @click="sortTableBy(headerItem.id, headerItem?.sort, i)"
@@ -39,23 +52,28 @@
 <script setup lang="ts">
 import {storeToRefs} from "pinia";
 import {usePlotsStore} from "~/store/plots";
+const filterNameInput = ref("");
 
 const plotsStore = usePlotsStore();
 const {plotsList} = storeToRefs(plotsStore);
 plotsStore.setPlots();
 let plotsListWhole = plotsList;
 
+const filterByString = () => {
+  plotsStore.setPlots(filterNameInput.value);
+};
+
 const headerColumns = [
   { title: "Plot number", id: "number", sort: "ASC" },
   {
-    title: "Last report date",
-    id: "lastReportingDate",
-    sortBy: "lastReportingDateUnix",
+    title: "Address",
+    id: "address",
+    sortBy: "address",
   },
   {
-    title: "Last report period",
-    id: "lastReportingPeriod",
-    sortBy: "lastReportingPeriodUnix",
+    title: "Tenure",
+    id: "tenure",
+    sortBy: "tenure",
   },
 ];
 
@@ -64,4 +82,10 @@ const { sortTableBy, tableRows, tableHeaderColumns } = useTable(
     headerColumns
 );
 
- </script>
+</script>
+
+<style lang="scss">
+th{
+
+}
+</style>
