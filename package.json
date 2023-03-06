@@ -18,12 +18,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
-    "jsdom": "^21.1.0",
     "nuxt": "^3.2.3",
-    "nuxt-vitest": "^0.6.6",
     "pinia": "^2.0.32",
     "sass": "^1.58.3",
     "vite": "^4.1.4",
-    "vitest": "^0.29.2"
   }
 }
