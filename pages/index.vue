@@ -1,24 +1,26 @@
 <template>
   <div>
-    <h1>Orbital Witness - your plots</h1>
+    <h1>Orbital Witness</h1>
+    <h2>Your plots</h2>
     <div v-if="plotsList">
-      <div class="my-4 col">
-        <label for="filter-table-string" class="col-2 fw-bold form-label"
-        >Filter table by plot number</label
-        >
-        <input
-            id="filter-table-string"
-            type="text"
-            placeholder="..."
-            v-model="filterNameInput"
-            @input="filterByString"
-            class="form-control"
-        />
+      <div class="my-4">
+        <form @submit.prevent>
+          <label for="filter-table-string" class="fw-bold form-label visually-hidden"
+          >Filter table by plot number</label
+          >
+          <input
+              id="filter-table-string"
+              type="text"
+              placeholder="Search by plot number..."
+              v-model="filterNameInput"
+              @input="filterByString"
+              class="form-control"
+          /></form>
       </div>
-      <div class="my-3" v-if="tableRows && tableRows.length">
+      <div class="my-3" v-if="tableRows && tableRows.length && filterNameInput">
         Showing {{ tableRows.length }} results
       </div>
-      <table class="table table-striped table-hover">
+      <table class="table table-striped table-hover table-responsive">
         <thead>
         <tr>
           <th role="button"
@@ -26,9 +28,10 @@
               :key="`table-header-col-${i}`"
               @click="sortTableBy(headerItem.id, headerItem?.sort, i)"
               class="pe-4"
+              :class="headerItem.classes"
           >
             {{ headerItem.title }}
-            {{ headerItem.sort }}
+            <span class="small">{{ headerItem.sort }}</span>
           </th>
         </tr>
         </thead>
@@ -40,7 +43,7 @@
           </td>
           <td> {{ item.address }}
           </td>
-          <td> {{ item.tenure }}
+          <td class="d-none d-md-table-cell"> {{ item.tenure }}
           </td>
         </tr>
         </tbody>
@@ -52,6 +55,7 @@
 <script setup lang="ts">
 import {storeToRefs} from "pinia";
 import {usePlotsStore} from "~/store/plots";
+
 const filterNameInput = ref("");
 
 const plotsStore = usePlotsStore();
@@ -64,20 +68,22 @@ const filterByString = () => {
 };
 
 const headerColumns = [
-  { title: "Plot number", id: "number", sort: "ASC" },
+  {title: "Plot number", id: "number", sort: "ASC", classes: ''},
   {
     title: "Address",
     id: "address",
     sortBy: "address",
+    classes: ''
   },
   {
     title: "Tenure",
     id: "tenure",
     sortBy: "tenure",
+    classes: 'd-none d-md-table-cell'
   },
 ];
 
-const { sortTableBy, tableRows, tableHeaderColumns } = useTable(
+const {sortTableBy, tableRows, tableHeaderColumns} = useTable(
     plotsListWhole as any,
     headerColumns
 );
@@ -85,7 +91,7 @@ const { sortTableBy, tableRows, tableHeaderColumns } = useTable(
 </script>
 
 <style lang="scss">
-th{
+th {
 
 }
 </style>
