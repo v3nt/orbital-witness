@@ -43,3 +43,5 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 # Notes
 - No pagination as API doesn't offer it.
+- filter table & map in realtime
+- no detail page, using map info window as very little to show
