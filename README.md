@@ -45,3 +45,4 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 - No pagination as API doesn't offer it.
 - filter table & map in realtime
 - no detail page, using map info window as very little to show
+- test issues - vitest, not used before and need to research config.
