@@ -1,0 +1,16 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+//
+// global-classes.styles
+
+$primary: $gray-900;
+$link-color: $primary;
+$link-hover-color: $indigo;
+$border-radius: 0rem;
+
+$border-radius: 0rem;
+$border-radius-sm: $border-radius;
+$border-radius-lg: $border-radius;
+$border-radius-xl: $border-radius;
+$border-radius-2xl: $border-radius;
+$border-radius-pill: $border-radius;

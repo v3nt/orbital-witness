@@ -1,5 +1,9 @@
 <template>
   <div class="wrapper box home">
-    <NuxtPage />
+    <main>
+      <div class="container">
+        <NuxtPage/>
+      </div>
+    </main>
   </div>
 </template>
