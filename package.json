@@ -10,17 +10,18 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.7",
-    "@vitejs/plugin-vue": "^4.0.0",
     "@vue/test-utils": "^2.3.0",
     "bootstrap": "^5.2.3",
-    "jsdom": "^21.1.0",
-    "pinia": "^2.0.32",
-    "sass": "^1.58.3",
-    "vitest": "^0.29.2",
     "vue": "^3.2.33",
     "vue3-google-map": "^0.15.0"
   },
   "devDependencies": {
-    "nuxt": "^3.2.3"
+    "@vitejs/plugin-vue": "^4.0.0",
+    "nuxt": "^3.2.3",
+    "jsdom": "^21.1.0",
+    "pinia": "^2.0.32",
+    "sass": "^1.58.3",
+    "vite": "^4.1.4",
+    "vitest": "^0.29.2"
   }
 }
