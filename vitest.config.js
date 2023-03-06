@@ -1,8 +1,8 @@
-import {defineConfig} from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineVitestConfig } from 'nuxt-vitest/config';
+import vue from '@vitejs/plugin-vue';
 import {fileURLToPath, URL} from "node:url";
 
-export default defineConfig({
+export default defineVitestConfig({
     plugins: [vue()],
     test: {
         globals: true,
