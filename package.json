@@ -12,7 +12,8 @@
     "bootstrap": "^5.2.3",
     "pinia": "^2.0.32",
     "sass": "^1.58.3",
-    "vue": "^3.2.33"
+    "vue": "^3.2.33",
+    "vue3-google-map": "^0.15.0"
   },
   "devDependencies": {
     "nuxt": "^3.2.3"
